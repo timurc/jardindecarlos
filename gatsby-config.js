@@ -46,6 +46,7 @@ module.exports = {
     },
     `gatsby-plugin-feed`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-less`,
     {
       resolve: 'gatsby-source-wordpress',
       options: {
