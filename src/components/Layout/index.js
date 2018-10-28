@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Helmet from 'react-helmet';
 
 import './base.css';
 import 'typeface-alegreya';
@@ -24,10 +25,11 @@ class Template extends React.Component {
       );
     }
     return (
-      <div>
+      <>
+        <Helmet htmlAttributes={{ lang: 'de' }} />
         {header}
         {children}
-      </div>
+      </>
     );
   }
 }
