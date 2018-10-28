@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import './base.css'
+import 'typeface-alegreya'
+
 class Template extends React.Component {
   render() {
     const { location, children } = this.props
