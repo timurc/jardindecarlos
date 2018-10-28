@@ -1,3 +1,7 @@
 body {
     font-family: alegreya, serif;
 }
+
+a {
+    color: inherit;
+}
