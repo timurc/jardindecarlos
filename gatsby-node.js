@@ -12,18 +12,13 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allMarkdownRemark(
-              sort: { fields: [frontmatter___date], order: DESC }
-              limit: 1000
-            ) {
+            allWordpressPost {
               edges {
                 node {
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                  }
+                  id
+                  slug
+                  title
+                  date
                 }
               }
             }
@@ -36,7 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         // Create blog posts pages.
-        const posts = result.data.allMarkdownRemark.edges;
+        const posts = result.data.allWordpressPost.edges;
 
         _.each(posts, (post, index) => {
           const previous =
@@ -44,10 +39,10 @@ exports.createPages = ({ graphql, actions }) => {
           const next = index === 0 ? null : posts[index - 1].node;
 
           createPage({
-            path: post.node.fields.slug,
+            path: post.node.slug,
             component: blogPost,
             context: {
-              slug: post.node.fields.slug,
+              slug: post.node.slug,
               previous,
               next,
             },

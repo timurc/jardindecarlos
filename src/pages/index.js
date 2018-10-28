@@ -12,7 +12,7 @@ class BlogIndex extends React.Component {
       this,
       'props.data.site.siteMetadata.description'
     );
-    const posts = get(this, 'props.data.allMarkdownRemark.edges');
+    const posts = get(this, 'props.data.allWordpressPost.edges');
 
     return (
       <Layout location={this.props.location}>
@@ -22,13 +22,13 @@ class BlogIndex extends React.Component {
           title={siteTitle}
         />
         {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug;
+          const title = node.title || node.fields.slug;
           return (
-            <div key={node.fields.slug}>
+            <div key={node.slug}>
               <h3>
-                <Link to={node.fields.slug}>{title}</Link>
+                <Link to={node.slug}>{title}</Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+              <small>{node.date}</small>
               <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
             </div>
           );
@@ -48,17 +48,16 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allWordpressPost {
       edges {
         node {
+          id
+          slug
+          title
+          content
           excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "DD MMMM, YYYY")
-            title
-          }
+          date(formatString: "DD MMMM, YYYY")
+          modified
         }
       }
     }

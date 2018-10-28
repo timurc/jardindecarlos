@@ -7,7 +7,7 @@ import Layout from '../components/Layout';
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark;
+    const post = this.props.data.wordpressPost;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     const siteDescription = post.excerpt;
     const { previous, next } = this.props.pageContext;
@@ -17,25 +17,25 @@ class BlogPostTemplate extends React.Component {
         <Helmet
           htmlAttributes={{ lang: 'en' }}
           meta={[{ name: 'description', content: siteDescription }]}
-          title={`${post.frontmatter.title} | ${siteTitle}`}
+          title={`${post.title} | ${siteTitle}`}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <h1>{post.title}</h1>
+        <p>{post.date}</p>
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
         <hr />
 
         <ul>
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+              <Link to={previous.slug} rel="prev">
+                ← {previous.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+              <Link to={next.slug} rel="next">
+                {next.title} →
               </Link>
             )}
           </li>
@@ -55,14 +55,12 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    wordpressPost(slug: { eq: $slug }) {
       id
       excerpt
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-      }
+      content
+      title
+      date(formatString: "MMMM DD, YYYY")
     }
   }
 `;
