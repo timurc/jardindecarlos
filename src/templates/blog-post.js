@@ -60,6 +60,15 @@ export const pageQuery = graphql`
       content
       title
       date(formatString: "MMMM DD, YYYY")
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 2500) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
     }
   }
 `;

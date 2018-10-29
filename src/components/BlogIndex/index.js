@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
+import Img from 'gatsby-image';
 
 import Layout from '../Layout';
 
@@ -18,14 +19,19 @@ class BlogIndex extends React.Component {
         />
         {posts.map(({ node }) => {
           const title = node.title || node.fields.slug;
+          console.log(node);
           return (
-            <div key={node.slug}>
-              <h3>
-                <Link to={node.slug}>{title}</Link>
-              </h3>
-              <small>{node.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
+            <article key={node.slug}>
+              <Link to={node.slug}>
+                <time>{node.date}</time>
+                <h1>{title}</h1>
+                {node.featured_media && (
+                  <Img
+                    fluid={node.featured_media.localFile.childImageSharp.fluid}
+                  />
+                )}
+              </Link>
+            </article>
           );
         })}
       </Layout>

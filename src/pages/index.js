@@ -27,6 +27,15 @@ export const pageQuery = graphql`
           excerpt
           date(formatString: "DD MMMM, YYYY")
           modified
+          featured_media {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 2500) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
       }
     }
