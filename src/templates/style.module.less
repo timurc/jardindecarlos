@@ -1,0 +1,38 @@
+@import "../components/vars";
+
+.article {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 900px) 1fr;
+    grid-gap: 1rem;
+    margin-bottom: 1rem;
+
+    > * {
+        grid-column: ~"2 / 3";
+    }
+
+    p {
+        margin: 0;
+
+        &:first-of-type {
+            margin-top: 1rem;
+        }
+    }
+}
+
+.header {
+    grid-row-start: 1;
+    align-self: end;
+    color: @highlight1;
+}
+
+.title {
+    margin: 0;
+    font-size: 3em;
+    margin-bottom: 1rem;
+}
+
+.featuredImage {
+    width: 100%;
+    grid-row-start: 1;
+    grid-column: ~"1 / 4";
+}

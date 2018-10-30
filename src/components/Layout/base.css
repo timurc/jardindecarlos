@@ -1,7 +1,7 @@
 body {
     font-family: alegreya, serif;
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 a {
@@ -14,4 +14,8 @@ a {
 
 h1 {
     font-weight: 800;
+}
+
+p {
+    /* font-size: 1.3rem; */
 }
