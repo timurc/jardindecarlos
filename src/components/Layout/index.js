@@ -8,7 +8,7 @@ import 'typeface-alegreya';
 
 class Template extends React.Component {
   render() {
-    const { children } = this.props;
+    const { children, className } = this.props;
 
     return (
       <>
@@ -18,7 +18,7 @@ class Template extends React.Component {
             Jardin de Carlos
           </Link>
         </h1>
-        <main>{children}</main>
+        <main className={className}>{children}</main>
       </>
     );
   }

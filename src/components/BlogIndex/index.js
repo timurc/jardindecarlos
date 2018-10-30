@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
+import s from './style.module.less';
 
 import Layout from '../Layout';
 
@@ -12,22 +13,28 @@ class BlogIndex extends React.Component {
     const siteDescription = siteMetadata.description;
 
     return (
-      <Layout location={this.props.location}>
+      <Layout className={s.container} location={this.props.location}>
         <Helmet
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
         {posts.map(({ node }) => {
           const title = node.title || node.fields.slug;
-          console.log(node);
+
+          const image =
+            node.featured_media &&
+            node.featured_media.localFile.childImageSharp.fluid;
           return (
-            <article key={node.slug}>
-              <Link to={node.slug}>
+            <article className={s.article} key={node.slug}>
+              <Link to={node.slug} className={s.link}>
                 <time>{node.date}</time>
-                <h1>{title}</h1>
-                {node.featured_media && (
-                  <Img
-                    fluid={node.featured_media.localFile.childImageSharp.fluid}
+                <h1 className={s.heading}>{title}</h1>
+                {image && (
+                  <img
+                    className={s.image}
+                    src={image.base64}
+                    sizes="450px"
+                    srcSet={image.srcSet}
                   />
                 )}
               </Link>

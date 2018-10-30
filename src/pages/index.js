@@ -25,7 +25,7 @@ export const pageQuery = graphql`
           title
           content
           excerpt
-          date(formatString: "DD MMMM, YYYY")
+          date(formatString: "DD. MMMM YYYY", locale: "de")
           modified
           featured_media {
             localFile {
