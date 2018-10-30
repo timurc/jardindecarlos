@@ -12,33 +12,33 @@ class BlogPostTemplate extends React.Component {
     const siteDescription = post.excerpt;
     const { previous, next } = this.props.pageContext;
 
+    const featuredImage =
+      post.featured_media &&
+      post.featured_media.localFile.childImageSharp.fluid;
+
     return (
       <Layout location={this.props.location}>
         <Helmet
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.title} | ${siteTitle}`}
         />
-        <h1>{post.title}</h1>
-        <p>{post.date}</p>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        <hr />
-
-        <ul>
-          <li>
-            {previous && (
-              <Link to={previous.slug} rel="prev">
-                ← {previous.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.slug} rel="next">
-                {next.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+        <article>
+          <header>
+            <time>{post.date}</time>
+            <h1>{post.title}</h1>
+          </header>
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        </article>
+        {previous && (
+          <Link to={previous.slug} rel="prev">
+            ← {previous.title}
+          </Link>
+        )}
+        {next && (
+          <Link to={next.slug} rel="next">
+            {next.title} →
+          </Link>
+        )}
       </Layout>
     );
   }
