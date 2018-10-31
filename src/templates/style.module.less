@@ -22,7 +22,11 @@
 .header {
     grid-row-start: 1;
     align-self: end;
-    color: @highlight1;
+    color: @highlight2;
+
+    .hasFeaturedImage & {
+        color: @highlight1;
+    }
 }
 
 .title {

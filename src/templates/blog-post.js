@@ -5,6 +5,7 @@ import get from 'lodash/get';
 import Parser from 'html-react-parser';
 import s from './style.module.less';
 import './wp-content-style.less';
+import cN from 'classnames';
 
 import Layout from '../components/Layout';
 
@@ -29,7 +30,9 @@ class BlogPostTemplate extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={`${post.title} | ${siteTitle}`}
         />
-        <article className={s.article}>
+        <article
+          className={cN({ [s.hasFeaturedImage]: featuredImage }, s.article)}
+        >
           {featuredImage && (
             <img
               className={s.featuredImage}
