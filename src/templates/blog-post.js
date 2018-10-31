@@ -22,7 +22,7 @@ class BlogPostTemplate extends React.Component {
 
     const blogPostContent = Parser(post.content);
 
-    const audio = post.acf.audio && post.acf.audio.url.source_url;
+    const audio = post.acf.file && post.acf.file.url.source_url;
 
     return (
       <Layout location={this.props.location}>
@@ -95,7 +95,7 @@ export const pageQuery = graphql`
       }
 
       acf {
-        audio {
+        file {
           url {
             source_url
           }
