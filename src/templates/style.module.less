@@ -2,26 +2,24 @@
 
 .article {
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 900px) 1fr;
-    grid-gap: 1rem;
+    grid-template-columns: 1rem 1fr 1fr minmax(auto, 600px) 1fr 1fr 1rem;
+    grid-row-gap: 4rem;
     margin-bottom: 1rem;
 
     > * {
-        grid-column: ~"2 / 3";
+        grid-column: ~"3 / 6";
     }
 
     p {
         margin: 0;
-
-        &:first-of-type {
-            margin-top: 1rem;
-        }
+        grid-column: ~"4 / 5";
     }
 }
 
 .header {
     grid-row-start: 1;
     align-self: end;
+    grid-column: ~"4 / 5";
     color: @highlight2;
 
     .hasFeaturedImage & {
@@ -38,5 +36,5 @@
 .featuredImage {
     width: 100%;
     grid-row-start: 1;
-    grid-column: ~"1 / 4";
+    grid-column: ~"1 / -1";
 }
