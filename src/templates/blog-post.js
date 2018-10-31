@@ -21,6 +21,8 @@ class BlogPostTemplate extends React.Component {
 
     const blogPostContent = Parser(post.content);
 
+    const audio = post.acf.audio && post.acf.audio.url.source_url;
+
     return (
       <Layout location={this.props.location}>
         <Helmet
@@ -39,6 +41,11 @@ class BlogPostTemplate extends React.Component {
             <time>{post.date}</time>
             <h1 className={s.title}>{post.title}</h1>
           </header>
+          {audio && (
+            <audio controls>
+              <source src={audio} type="audio/mp3" />
+            </audio>
+          )}
           {blogPostContent}
           <div className={s.prevNext}>
             {previous && (
@@ -80,6 +87,14 @@ export const pageQuery = graphql`
             fluid(maxWidth: 2500) {
               ...GatsbyImageSharpFluid
             }
+          }
+        }
+      }
+
+      acf {
+        audio {
+          url {
+            source_url
           }
         }
       }
