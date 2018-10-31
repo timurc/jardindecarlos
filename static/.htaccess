@@ -2,5 +2,5 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application
 
 AuthType Basic
 AuthName "restricted area"
-AuthUserFile /home/aufachse/.htpasswd
+AuthUserFile /var/www/virtual/aufachse/.htpasswd
 require valid-user
