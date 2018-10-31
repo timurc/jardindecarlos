@@ -3,15 +3,18 @@
 .article {
     display: grid;
     grid-template-columns: 1rem 1fr 1fr minmax(auto, 600px) 1fr 1fr 1rem;
-    grid-row-gap: 4rem;
     margin-bottom: 1rem;
 
     > * {
+        grid-column: ~"4 / 5";
+        margin: 0 0 4rem;
+    }
+
+    :global .wp-block-gallery {
         grid-column: ~"3 / 6";
     }
 
     p {
-        margin: 0;
         grid-column: ~"4 / 5";
     }
 }
@@ -21,6 +24,10 @@
     align-self: end;
     grid-column: ~"4 / 5";
     color: @highlight2;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
     .hasFeaturedImage & {
         color: @highlight1;
@@ -35,6 +42,9 @@
 
 .featuredImage {
     width: 100%;
+    height: calc(100vh - 8.8rem);
     grid-row-start: 1;
     grid-column: ~"1 / -1";
+    object-fit: cover;
+    object-position: center;
 }
