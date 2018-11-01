@@ -1,6 +1,7 @@
 export default {
   'lima-pajaros': {
     location: 'Lima',
+    audio: require('./181029-001_VögelUndStrasse_cut.mp3'),
   },
   kaffee: {
     location: 'Lima',
@@ -11,5 +12,6 @@ export default {
   },
   reise: {
     location: 'Berlin, Frankfurt, Madrid, Lima',
+    audio: require('./181026-01_Reise_cut.mp3'),
   },
 };
