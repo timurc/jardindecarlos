@@ -2,6 +2,7 @@ export default {
   'lima-pajaros': {
     location: 'Lima',
     audio: require('./181029-001_VögelUndStrasse_cut.mp3'),
+    brightBackground: true,
   },
   kaffee: {
     location: 'Lima',

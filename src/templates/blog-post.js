@@ -37,7 +37,13 @@ class BlogPostTemplate extends React.Component {
           title={`${post.title} | ${siteTitle}`}
         />
         <article
-          className={cN({ [s.hasFeaturedImage]: featuredImage }, s.article)}
+          className={cN(
+            {
+              [s.hasFeaturedImage]: featuredImage,
+              [s.brightBackground]: postMetaData.brightBackground,
+            },
+            s.article
+          )}
         >
           {featuredImage && (
             <img
