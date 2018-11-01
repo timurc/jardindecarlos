@@ -18,6 +18,7 @@ class BlogPostTemplate extends React.Component {
 
     const featuredImage =
       post.featured_media &&
+      post.featured_media.localFile &&
       post.featured_media.localFile.childImageSharp.fluid;
 
     const blogPostContent = Parser(post.content);
