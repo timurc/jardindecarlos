@@ -6,6 +6,7 @@ import Parser from 'html-react-parser';
 import s from './style.module.less';
 import './wp-content-style.less';
 import cN from 'classnames';
+import metaData from '../components/metaData';
 
 import Layout from '../components/Layout';
 
@@ -16,6 +17,9 @@ class BlogPostTemplate extends React.Component {
     const siteDescription = post.excerpt;
     const { previous, next } = this.props.pageContext;
 
+    const slug = [this.props.pageContext.slug];
+    const postMetaData = metaData[slug] ? metaData[slug] : {};
+
     const featuredImage =
       post.featured_media &&
       post.featured_media.localFile &&
@@ -24,7 +28,7 @@ class BlogPostTemplate extends React.Component {
     const blogPostContent = Parser(post.content);
 
     // const audio = post.acf.audio3 && post.acf.audio3.url.source_url;
-    const audio = null;
+    const audio = postMetaData.audio;
 
     return (
       <Layout location={this.props.location}>
@@ -43,7 +47,10 @@ class BlogPostTemplate extends React.Component {
             />
           )}
           <header className={s.header}>
-            <time>{post.date}</time>
+            <div>
+              {postMetaData.location && <span>{postMetaData.location}, </span>}
+              <time>{post.date}</time>
+            </div>
             <h1 className={s.title}>{post.title}</h1>
           </header>
           {audio && (
@@ -57,7 +64,7 @@ class BlogPostTemplate extends React.Component {
               <Link to={previous.slug} rel="prev">
                 ← {previous.title}
               </Link>
-            )}{' '}
+            )}
             {next && (
               <Link to={next.slug} rel="next">
                 {next.title} →
