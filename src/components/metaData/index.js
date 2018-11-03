@@ -15,4 +15,8 @@ export default {
     location: 'Berlin, Frankfurt, Madrid, Lima',
     audio: require('./181026-01_Reise_cut.mp3'),
   },
+  'die-prozession': {
+    location: 'Lima',
+    audio: require('./181101-002_Prozession_cut.mp3'),
+  },
 };
