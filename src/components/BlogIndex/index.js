@@ -23,6 +23,7 @@ class BlogIndex extends React.Component {
 
           const image =
             node.featured_media &&
+            node.featured_media.localFile &&
             node.featured_media.localFile.childImageSharp.fluid;
           return (
             <article className={s.article} key={node.slug}>
