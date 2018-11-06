@@ -26,6 +26,14 @@
     min-height: 12rem;
     color: @highlight1;
 
+    .brightBackground & {
+        color: @highlight2;
+
+        &:hover {
+            color: @highlight1;
+        }
+    }
+
     &:before {
         content: '';
         position: absolute;

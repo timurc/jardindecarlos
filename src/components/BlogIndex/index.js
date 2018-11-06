@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Helmet from 'react-helmet';
-import Img from 'gatsby-image';
 import s from './style.module.less';
+import metaData from '../metaData';
+import cN from 'classnames';
 
 import Layout from '../Layout';
 
@@ -25,8 +26,16 @@ class BlogIndex extends React.Component {
             node.featured_media &&
             node.featured_media.localFile &&
             node.featured_media.localFile.childImageSharp.fluid;
+
+          const postMetaData = metaData[node.slug] ? metaData[node.slug] : {};
+
           return (
-            <article className={s.article} key={node.slug}>
+            <article
+              className={cN(s.article, {
+                [s.brightBackground]: postMetaData.brightBackground,
+              })}
+              key={node.slug}
+            >
               <Link to={node.slug} className={s.link}>
                 <time>{node.date}</time>
                 <h1 className={s.heading}>{title}</h1>
