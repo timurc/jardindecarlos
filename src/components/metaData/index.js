@@ -23,4 +23,8 @@ export default {
     location: 'Lima',
     audio: require('./181030-003_PazifikMeeresrauschen_cut.mp3'),
   },
+  impressionen: {
+    location: 'Lima',
+    brightBackground: true,
+  },
 };
