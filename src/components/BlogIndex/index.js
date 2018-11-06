@@ -37,7 +37,10 @@ class BlogIndex extends React.Component {
               key={node.slug}
             >
               <Link to={node.slug} className={s.link}>
-                <time>{node.date}</time>
+                <div>
+                  {postMetaData.location && <>{postMetaData.location}, </>}
+                  <time>{node.date}</time>
+                </div>
                 <h1 className={s.heading}>{title}</h1>
                 {image && (
                   <img
