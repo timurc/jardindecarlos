@@ -17,7 +17,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allWordpressPost {
+    allWordpressPost(sort: { order: DESC, fields: [date] }) {
       edges {
         node {
           id
