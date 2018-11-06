@@ -19,4 +19,8 @@ export default {
     location: 'Lima',
     audio: require('./181101-002_Prozession_cut.mp3'),
   },
+  'am-strand': {
+    location: 'Lima',
+    audio: require('./181030-003_PazifikMeeresrauschen_cut.mp3'),
+  },
 };
