@@ -27,4 +27,12 @@ export default {
     location: 'Lima',
     brightBackground: true,
   },
+  schichtwechsel: {
+    location: 'Lima',
+    audio: require('./181030-004_WachwechselPräsidentenpalast_cut.mp3'),
+  },
+  bus: {
+    location: 'Lima',
+    audio: require('./181029-002_Bus_cut.mp3'),
+  },
 };
