@@ -38,4 +38,8 @@ export default {
   artefakte: {
     location: 'Lima',
   },
+  'angekommen-in-arequipa': {
+    location: 'Arequipa',
+    audio: require('./181108_001-BlaskapelleAufPlaza_Cut.mp3'),
+  },
 };
