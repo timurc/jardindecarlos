@@ -35,4 +35,7 @@ export default {
     location: 'Lima',
     audio: require('./181029-002_Bus_cut.mp3'),
   },
+  artefakte: {
+    location: 'Lima',
+  },
 };
