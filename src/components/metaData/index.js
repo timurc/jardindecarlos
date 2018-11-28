@@ -49,4 +49,8 @@ export default {
   'wiedersehen-mit-alejandro': {
     location: 'Arequipa',
   },
+  nachtleben: {
+    location: 'Arequipa',
+    audio: require('./181117_002-LiveMusikClub_cut.mp3'),
+  },
 };
