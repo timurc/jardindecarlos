@@ -42,4 +42,11 @@ export default {
     location: 'Arequipa',
     audio: require('./181108_001-BlaskapelleAufPlaza_Cut.mp3'),
   },
+  colca: {
+    location: 'Cañón de Colca',
+    audio: require('./181123_001_BusbahnhofArequipa.mp3'),
+  },
+  'wiedersehen-mit-alejandro': {
+    location: 'Arequipa',
+  },
 };
