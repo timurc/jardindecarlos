@@ -53,4 +53,11 @@ export default {
     location: 'Arequipa',
     audio: require('./181117_002-LiveMusikClub_cut.mp3'),
   },
+  'laguna-de-salinas': {
+    location: 'Arequipa',
+    audio: require('./181201_Salinenausflug_cut.mp3'),
+  },
+  monasterio: {
+    location: 'Arequipa',
+  },
 };
