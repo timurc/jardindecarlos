@@ -60,4 +60,8 @@ export default {
   monasterio: {
     location: 'Arequipa',
   },
+  almuerzo: {
+    location: 'Arequipa',
+    audio: require('./181113_MusikImLieblingsrestaurant_cut.mp3'),
+  },
 };
