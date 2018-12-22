@@ -64,4 +64,8 @@ export default {
     location: 'Arequipa',
     audio: require('./181113_MusikImLieblingsrestaurant_cut.mp3'),
   },
+  'feliz-navidad': {
+    location: 'Huaraz',
+    audio: require('./181201_003_WeihnachsdekoPlazaDeHuanayara.mp3'),
+  },
 };
