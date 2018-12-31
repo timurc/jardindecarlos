@@ -71,4 +71,8 @@ export default {
   'training-in-huaraz': {
     location: 'Huaraz',
   },
+  'santa-cruz-trek': {
+    location: 'Huascaran',
+    audio: require('./Im_Zelt_Santa_Cruz.m4a'),
+  },
 };
