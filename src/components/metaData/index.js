@@ -68,4 +68,7 @@ export default {
     location: 'Huaraz',
     audio: require('./181201_003_WeihnachsdekoPlazaDeHuanayara.mp3'),
   },
+  'training-in-huaraz': {
+    location: 'Huaraz',
+  },
 };
