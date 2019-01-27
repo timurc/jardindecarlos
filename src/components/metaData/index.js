@@ -78,4 +78,8 @@ export default {
   'selva-1': {
     location: 'Salvación',
   },
+  'machu-picchu': {
+    location: 'Aguas Calientes',
+    audio: require('./190102-zug-trimmed.mp3'),
+  },
 };
