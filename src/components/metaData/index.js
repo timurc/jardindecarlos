@@ -73,7 +73,7 @@ export default {
   },
   'santa-cruz-trek': {
     location: 'Huascaran',
-    audio: require('./Im_Zelt_Santa_Cruz.m4a'),
+    audio: require('./Im_Zelt_Santa_Cruz.mp3'),
   },
   'selva-1': {
     location: 'Salvación',
