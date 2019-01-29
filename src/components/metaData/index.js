@@ -82,4 +82,7 @@ export default {
     location: 'Aguas Calientes',
     audio: require('./190102-zug-trimmed.mp3'),
   },
+  anticuchos: {
+    location: 'La Paz',
+  },
 };
