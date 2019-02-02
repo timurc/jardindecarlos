@@ -85,4 +85,8 @@ export default {
   anticuchos: {
     location: 'La Paz',
   },
+  'selva-ii': {
+    location: 'Parque nacional del Manu',
+    audio: require('./Salvacion_cut.mp3'),
+  },
 };
