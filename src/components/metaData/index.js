@@ -89,4 +89,7 @@ export default {
     location: 'Parque nacional del Manu',
     audio: require('./Salvacion_cut.mp3'),
   },
+  'muela-de-diablo': {
+    location: 'La Paz',
+  },
 };
