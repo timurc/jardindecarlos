@@ -92,4 +92,7 @@ export default {
   'muela-de-diablo': {
     location: 'La Paz',
   },
+  teleferico: {
+    location: 'La Paz',
+  },
 };
