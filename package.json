@@ -51,7 +51,7 @@
     "develop": "gatsby develop",
     "build": "GATSBY_CONCURRENT_DOWNLOAD=3 gatsby build",
     "serve": "gatsby serve",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy": "rsync -avzc --del public/ aufachse@machholz.uberspace.de:/var/www/virtual/aufachse/jardindecarlos.de/",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }
