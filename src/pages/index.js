@@ -1,8 +1,9 @@
 import React from 'react';
 import BlogIndex from '../components/BlogIndex';
+import { graphql } from 'gatsby';
 
-export default function({ location, data }) {
-  const posts = data.allWordpressPost.edges;
+export default function Page ({ location, data }) {
+  const posts = data.allWpPost.edges;
   const siteMetadata = data.site.siteMetadata;
   return (
     <BlogIndex siteMetadata={siteMetadata} posts={posts} location={location} />
@@ -17,7 +18,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allWordpressPost(sort: { order: DESC, fields: [date] }) {
+    allWpPost(sort: { order: DESC, fields: [date] }) {
       edges {
         node {
           id
@@ -27,11 +28,13 @@ export const pageQuery = graphql`
           excerpt
           date(formatString: "DD. MMMM YYYY", locale: "de")
           modified
-          featured_media {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 2500) {
-                  ...GatsbyImageSharpFluid
+          featuredImage { 
+            node {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 2500) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }

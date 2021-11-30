@@ -16,29 +16,13 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
     // `gatsby-plugin-feed`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-less`,
     {
       resolve: 'gatsby-source-wordpress',
       options: {
-        baseUrl: 'aufachse.uber.space',
-        protocol: 'https',
-        hostingWPCOM: false,
-        useACF: true,
-        verboseOutput: false,
-        perPage: 100,
-        // searchAndReplaceContentUrls: {
-        //   sourceUrl: 'https://source-url.com',
-        //   replacementUrl: 'https://replacement-url.com',
-        // },
-        concurrentRequests: 10,
+        url: 'https://aufachse.uber.space/graphql',
         includedRoutes: [
           // '/*/*/categories',
           '/*/*/posts',
@@ -48,6 +32,12 @@ module.exports = {
           // '/*/*/taxonomies',
           '/*/*/users',
         ],
+        develop: {
+          hardCacheMediaFiles: true
+        },
+        production: {
+          hardCacheMediaFiles: true
+        }
       },
     },
   ],

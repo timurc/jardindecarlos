@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import get from 'lodash/get';
 import Parser from 'html-react-parser';
-import s from './style.module.less';
+import * as s from './style.module.less';
 import './wp-content-style.less';
 import cN from 'classnames';
 import metaData from '../components/metaData';
@@ -12,7 +12,7 @@ import Layout from '../components/Layout';
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.wordpressPost;
+    const post = this.props.data.wpPost;
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
     const siteDescription = post.excerpt;
     const { previous, next } = this.props.pageContext;
@@ -21,9 +21,9 @@ class BlogPostTemplate extends React.Component {
     const postMetaData = metaData[slug] ? metaData[slug] : {};
 
     const featuredImage =
-      post.featured_media &&
-      post.featured_media.localFile &&
-      post.featured_media.localFile.childImageSharp.fluid;
+      post.featuredImage &&
+      post.featuredImage.node.localFile &&
+      post.featuredImage.node.localFile.childImageSharp.fluid;
 
     const blogPostContent = Parser(post.content);
 
@@ -93,17 +93,19 @@ export const pageQuery = graphql`
         author
       }
     }
-    wordpressPost(slug: { eq: $slug }) {
+    wpPost(slug: { eq: $slug }) {
       id
       excerpt
       content
       title
       date(formatString: "DD. MMMM YYYY", locale: "de")
-      featured_media {
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 2500) {
-              ...GatsbyImageSharpFluid
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 2500) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }

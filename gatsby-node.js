@@ -12,7 +12,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allWordpressPost {
+            allWpPost {
               edges {
                 node {
                   id
@@ -31,7 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         // Create blog posts pages.
-        const posts = result.data.allWordpressPost.edges;
+        const posts = result.data.allWpPost.edges;
 
         _.each(posts, (post, index) => {
           const previous =
