@@ -12,7 +12,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allWpPost {
+            allWpPost(sort: {order: DESC, fields: date}) {
               edges {
                 node {
                   id

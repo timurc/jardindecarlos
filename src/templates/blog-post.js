@@ -67,12 +67,12 @@ class BlogPostTemplate extends React.Component {
           {blogPostContent}
           <div className={s.prevNext}>
             {previous && (
-              <Link to={previous.slug} rel="prev">
+              <Link to={`/${previous.slug}`} rel="prev">
                 ← {previous.title}
               </Link>
             )}
             {next && (
-              <Link to={next.slug} rel="next">
+              <Link to={`/${next.slug}`} rel="next">
                 {next.title} →
               </Link>
             )}
